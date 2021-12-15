@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { InterfaceUsuario } from '../interfaces/interfaz-usuario';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
-import { InterfaceUsuario } from './interfaces/interfaz-usuario';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicioUsuariosService {
-  constructor(private httpClient:HttpClient) { }
+export class ServiUsuarioService {
+
+  constructor(private http:HttpClient) { }
 
   enlace:string="http://localhost:3000/users";
-  resultado!:any;
+  resultado!:InterfaceUsuario[];
 
   buscarUsuarios(){
-    this.httpClient.get<any>(this.enlace).subscribe((resp) => {
+    this.http.get<InterfaceUsuario[]>(this.enlace).subscribe((resp) => {
       this.resultado = resp;
     })
   }

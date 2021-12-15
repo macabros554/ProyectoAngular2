@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimerServicioService } from 'src/app/primer-servicio.service';
+import { PrimerServicioService } from 'src/app/servicios/primer-servicio.service';
+
 
 @Component({
   selector: 'app-servers',
