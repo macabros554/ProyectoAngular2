@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ServicioUsuariosService } from 'src/app/servicio-usuarios.service';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bsService:ServicioUsuariosService) { }
 
   ngOnInit(): void {
+    this.bsService.buscarUsuarios();
   }
 
+  get usuarios(){
+    return this.bsService.resultado;
+  }
 }
